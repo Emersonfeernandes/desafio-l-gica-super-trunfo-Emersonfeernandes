@@ -112,7 +112,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
         printf("Carta %d venceu\n",
            (carta1.populacao > carta2.populacao) ? 1 : 2);
     }
-    if (atributo == 2)
+    else if (atributo == 2)
     {
         printf("\nComparação de cartas (Atributo: Área):\n");
         printf("Carta 1 - %s: %lf\n", carta1.cidade, carta1.area);
@@ -120,7 +120,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
         printf("Carta %d venceu\n",
                (carta1.area > carta2.area) ? 1 : 2);
     }
-    if (atributo == 3)
+    else if (atributo == 3)
     {
         printf("\nComparação de cartas (Atributo: PIB):\n");
         printf("Carta 1 - %s: %lf\n", carta1.cidade, carta1.PIB);
@@ -128,7 +128,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
         printf("Carta %d venceu\n",
             (carta1.PIB > carta2.PIB) ? 1 : 2);
     }
-    if (atributo == 4)
+    else if (atributo == 4)
     {
         printf("\nComparação de cartas (Atributo: Densidade Populacional):\n");
         printf("Carta 1 - %s: %f\n", carta1.cidade, carta1.densidade);
@@ -136,13 +136,16 @@ void escolhaAtributo(Carta carta1, Carta carta2){
         printf("Carta %d venceu\n",
             (carta1.densidade < carta2.densidade) ? 1 : 2);
     }
-    if (atributo == 5)
+    else if (atributo == 5)
     {
         printf("\nComparação de cartas (Atributo: PIB per Capita):\n");
         printf("Carta 1 - %s: %f\n", carta1.cidade, carta1.perCapita);
         printf("Carta 2 - %s: %f\n", carta2.cidade, carta2.perCapita);
         printf("Carta %d venceu\n",
             (carta1.perCapita > carta2.perCapita) ? 1 : 2);
+    }
+    else {
+       printf("Opção inválida!\n");
     }
 }
 
