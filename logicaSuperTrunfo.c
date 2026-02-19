@@ -98,15 +98,19 @@ void entradaDados(Carta *carta1, Carta *carta2) {
 
 }
 
+// Função para escolha do atributo de comparação
 void escolhaAtributo(Carta carta1, Carta carta2){
+    // Variaveis da função
     int atributo, numCartaVencedora;
     char *cidadeVencedora;
 
+    // opções para escolha
     printf("\n1 - População\n2 - Área\n3 - PIB\n4 - Densidade Populacional\n5 - PIB per capita\n");
     printf("\nEscolha um dos atributos para comparação digitando de 1 a 5: ");
     scanf("%d", &atributo);
 
     if (atributo == 1){
+        // caso escolha 1 - População
         numCartaVencedora = (carta1.populacao > carta2.populacao) ? 1 : 2;
         cidadeVencedora = (carta1.populacao > carta2.populacao) ? 
                 carta1.cidade : carta2.cidade;
@@ -118,6 +122,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
     }
     else if (atributo == 2)
     {
+        // caso escolha 2 - Área
         numCartaVencedora = (carta1.area > carta2.area) ? 1 : 2;
         cidadeVencedora = (carta1.area > carta2.area) ? 
                 carta1.cidade : carta2.cidade;
@@ -128,6 +133,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
     }
     else if (atributo == 3)
     {
+        // caso escolha 3 - PIB
         numCartaVencedora = (carta1.PIB > carta2.PIB) ? 1 : 2;
         cidadeVencedora = (carta1.PIB > carta2.PIB) ? 
                 carta1.cidade : carta2.cidade;
@@ -139,6 +145,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
     }
     else if (atributo == 4)
     {
+        // caso escolha 4 - Densidade Populacional
         numCartaVencedora = (carta1.densidade < carta2.densidade) ? 1 : 2;
         cidadeVencedora = (carta1.densidade < carta2.densidade) ? 
                 carta1.cidade : carta2.cidade;
@@ -149,6 +156,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
     }
     else if (atributo == 5)
     {
+        // caso escolha 5 - PIB per capita
         numCartaVencedora = (carta1.perCapita > carta2.perCapita) ? 1 : 2;
         cidadeVencedora = (carta1.perCapita > carta2.perCapita) ? 
                 carta1.cidade : carta2.cidade;
