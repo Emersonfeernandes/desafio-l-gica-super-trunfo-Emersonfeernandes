@@ -29,6 +29,7 @@ float calcularDensidade(unsigned long int populacao, float area) {
     return (float) populacao / area;
 }
 
+// Função para somar todos os atributos númericos de cada carta
 double calcularSuperPoder(Carta c) {
     return c.populacao +
            c.area +
@@ -38,6 +39,7 @@ double calcularSuperPoder(Carta c) {
            c.perCapita;
 }
 
+// Função para verificar a carta vencedora ou se houve empate
 char* venceuEmpatou(double valor1, double valor2){
     if (valor1 > valor2){
         return "Carta 1 venceu";
@@ -116,6 +118,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
     char *cidadeVencedora;
 
     // opções para escolha
+    printf("\n=================================================\n");
     printf("\n1 - População\n2 - Área\n3 - PIB\n4 - Densidade Populacional\n5 - PIB per capita\n");
     printf("\nEscolha um dos atributos para comparação digitando de 1 a 5: ");
     scanf("%d", &atributo);
@@ -189,7 +192,7 @@ void escolhaAtributo(Carta carta1, Carta carta2){
 void saidaDados(Carta carta1, Carta carta2) {
     
     // PRINTs DA CARTA 1
-    printf("\nCarta 1\n");
+    printf("\n### Carta 1 ###\n");
     printf("Estado: %c\n", carta1.letra);
     printf("Código: %c%s\n", carta1.letra, carta1.estado);
     printf("Cidade: %s\n", carta1.cidade);
@@ -201,7 +204,7 @@ void saidaDados(Carta carta1, Carta carta2) {
     printf("PIB per Capita: %.2f reais\n", carta1.perCapita);
 
     // PRINTs DA CARTA 2
-    printf("\nCarta 2\n");
+    printf("\n### Carta 2 ###\n");
     printf("Estado: %c\n", carta2.letra);
     printf("Código: %c%s\n", carta2.letra, carta2.estado);
     printf("Cidade: %s\n", carta2.cidade);
@@ -255,11 +258,32 @@ void exibirComparacao(Carta carta1, Carta carta2){
 
 int main(){
     Carta carta1, carta2;
+    int opcao;
 
     entradaDados(&carta1, &carta2);
-    escolhaAtributo(carta1, carta2);
-    saidaDados(carta1, carta2);
-    exibirComparacao(carta1, carta2);
+
+    printf("\n### Escolha exibir dados, comparar um dos atributos ou todos ###\n");
+    printf("\n1 - Exibir Dados das Cartas.\n2 - Escolher um Atributo.\n3 - Exibir Todas comparações.\n");
+    printf("\nDigite sua escolha: ");
+    scanf("%d", &opcao);
+
+    if (opcao > 3 || opcao == 0)
+    {
+        printf("\nPor favor, digite: 1, 2 ou 3\n");
+    } else {
+        switch (opcao)
+        {
+            case 1:
+                saidaDados(carta1, carta2);
+                break;
+            case 2:
+                escolhaAtributo(carta1, carta2);
+                break;
+            case 3:
+                exibirComparacao(carta1, carta2);
+                break;
+        }
+    }
 
     return 0;    
 }
