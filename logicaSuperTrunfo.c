@@ -427,7 +427,7 @@ int main(){
                 break;
         }
     } else {
-        printf("\nPor favor, digite: 1, 2 ou 3\n");
+        printf("\nPor favor, digite: 1, 2, 3 ou 4\n");
     }
 
     return 0;    
