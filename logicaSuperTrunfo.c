@@ -267,22 +267,22 @@ int main(){
     printf("\nDigite sua escolha: ");
     scanf("%d", &opcao);
 
-    if (opcao > 3 || opcao == 0)
+    if (opcao > 0 && opcao <= 3)
     {
-        printf("\nPor favor, digite: 1, 2 ou 3\n");
-    } else {
         switch (opcao)
         {
             case 1:
-                saidaDados(carta1, carta2);
-                break;
+            saidaDados(carta1, carta2);
+            break;
             case 2:
-                escolhaAtributo(carta1, carta2);
-                break;
+            escolhaAtributo(carta1, carta2);
+            break;
             case 3:
-                exibirComparacao(carta1, carta2);
-                break;
+            exibirComparacao(carta1, carta2);
+            break;
         }
+    } else {
+        printf("\nPor favor, digite: 1, 2 ou 3\n");
     }
 
     return 0;    
